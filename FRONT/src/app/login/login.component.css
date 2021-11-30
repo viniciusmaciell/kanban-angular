@@ -1,0 +1,9 @@
+.login-screen {
+    background-color: #36363B;
+    color: white;
+    font-family: 'Rubik', sans-serif;
+    border-radius: 3rem;
+    min-width: 350px;
+    position: relative;
+    top: 15vh;
+}

@@ -1,0 +1,15 @@
+.btn-edit {
+    width: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+.btn-common {
+    border-color: transparent;
+}
+.title-to-do {
+    background-image: linear-gradient(to right,#F7BA06, transparent );
+    border-radius: 0.3rem;
+    margin-bottom: 0.8rem;
+    color: white;
+    font-weight: bold;
+ }

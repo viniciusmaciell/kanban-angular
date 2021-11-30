@@ -1,0 +1,51 @@
+<div id="board">
+  <div class="d-flex flex-row flex-wrap justify-content-around">
+    <div>
+      <!-- <app-new-card></app-new-card> -->
+      <button
+      (click)="allowAddCard()"
+      *ngIf="showAddButton; else showAddCard"
+      class="btn p-1 btn-add">
+  
+    <img class="add-icon" src="../../assets/plus-square.svg" alt="" />
+  </button>
+  
+  <ng-template #showAddCard>
+    
+  
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+
+    
+          <form [formGroup]="newCardForm" (ngSubmit)="addNewCard()">
+
+            <div class="card-header form-group"><input formControlName="titulo" class="text-center"placeholder="Title" type="text"> </div>
+            <div class="card-body">
+              <textarea formControlName="conteudo" class="text-center" placeholder="Content here"name="" id="" cols="21" rows="3"></textarea>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+              <button (click)="cancelAddCard()" class="btn btn-common btn-danger p-1" ><img class="btn-edit" src="../../assets/x-square.svg" alt=""></button>
+             <button type="submit" class="btn btn-success p-1"><img src="../../assets/check2-square.svg" class="btn-edit" alt=""></button>
+            </div>
+          </form>
+   
+    </div>
+      
+  </ng-template>
+  
+    </div>
+    <div>
+      <h4 class="text-center title-to-do w-100">TO-DO</h4>
+      <app-card-item *ngFor="let cards of cardsTodo" [cards]="cards"></app-card-item>
+    </div>
+
+    <div>
+      <h4 class="text-center title-to-do w-100">DOING</h4>
+      <app-card-item *ngFor="let cards of cardsDoing" [cards]="cards"></app-card-item>
+    </div>
+
+    <div>
+      <h4 class="text-center title-to-do w-100">DONE</h4>
+      <app-card-item *ngFor="let cards of cardsDone" [cards]="cards"></app-card-item>
+    </div>
+  </div>
+</div>

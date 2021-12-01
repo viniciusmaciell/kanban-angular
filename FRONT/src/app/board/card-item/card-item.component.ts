@@ -62,8 +62,12 @@ export class CardItemComponent implements OnInit {
     this.kanbanService
       .changeCards(
         this.cards.id,
-        (this.cards.titulo = this.editCard.value.titulo),
-        (this.cards.conteudo = this.editCard.value.conteudo),
+        (this.cards.titulo = this.editCard.value.titulo
+          ? this.editCard.value.titulo
+          : this.cards.titulo),
+        (this.cards.conteudo = this.editCard.value.conteudo
+          ? this.editCard.value.conteudo
+          : this.cards.conteudo),
         this.cards.lista
       )
       .subscribe((data) => {

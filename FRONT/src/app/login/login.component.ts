@@ -12,8 +12,7 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit {
   singUpForm!: FormGroup;
 
-  constructor(private kanbanService: KanbanService,
-    private route: Router) {}
+  constructor(private kanbanService: KanbanService, private route: Router) {}
 
   ngOnInit(): void {
     this.singUpForm = new FormGroup({
@@ -23,13 +22,22 @@ export class LoginComponent implements OnInit {
   }
 
   getAuth() {
-    this.kanbanService.sendAuthRequest(this.singUpForm.value.username, this.singUpForm.value.password).subscribe((data)=> {
-      if(data) {
-        this.kanbanService.isAuth = true;
-        this.kanbanService.saveToken(data);
-        this.route.navigateByUrl("/board");
-
-      } else alert(`Usuário ou senha Inválidos!`)
-    })}
-
+    this.kanbanService
+      .sendAuthRequest(
+        this.singUpForm.value.username,
+        this.singUpForm.value.password
+      )
+      .subscribe(
+        (data) => {
+          if (data) {
+            this.kanbanService.isAuth = true;
+            this.kanbanService.saveToken(data);
+            this.route.navigateByUrl("/board");
+          } else {
+            this.route.navigate(["/error"]);
+          }
+        },
+        (error) => console.log(error)
+      );
   }
+}

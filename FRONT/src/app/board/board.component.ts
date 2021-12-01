@@ -26,22 +26,20 @@ export class BoardComponent implements OnInit {
     this.getAllCards();
     this.kanbanService.cardsChange.subscribe(() => {
       this.getAllCards();
-    }
-    
-    );
+    });
   }
 
-  // getAllCards() {
-  //   this.kanbanService.getCards().subscribe((cards) => {
-  //     this.allCards = cards;
-  //   });
-  // }
   getAllCards() {
-    this.kanbanService.getCards().subscribe((cards) => {
-     this.cardsTodo = this.kanbanService.getCardsTodo(cards)
-     this.cardsDoing = this.kanbanService.getCardsDoing(cards)
-     this.cardsDone = this.kanbanService.getCardsDone(cards)
-    });
+    this.kanbanService.getCards().subscribe(
+      (cards) => {
+        this.cardsTodo = this.kanbanService.getCardsTodo(cards);
+        this.cardsDoing = this.kanbanService.getCardsDoing(cards);
+        this.cardsDone = this.kanbanService.getCardsDone(cards);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   addNewCard() {

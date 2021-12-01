@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
 .navbar {
-    box-shadow: -1px 1px 5px 1px #00000033;
-    background-color: #36363B;
+  box-shadow: -1px 1px 5px 1px #00000033;
+  background-color: #36363b;
 }
 
 .brand-title {
-    color: #ffffff;
-    font-family: 'Righteous', cursive;
-    font-size: 1.5rem;
-    font-weight: 400;
+  color: #ffffff;
+  font-family: "Righteous", cursive;
+  font-size: 1.5rem;
+  font-weight: 400;
 }

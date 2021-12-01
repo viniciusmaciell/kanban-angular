@@ -14,16 +14,12 @@ export class CardItemComponent implements OnInit {
 
   editCard: FormGroup = new FormGroup({
     titulo: new FormControl(null),
-    conteudo: new FormControl(null)
-  })
+    conteudo: new FormControl(null),
+  });
 
   constructor(private kanbanService: KanbanService) {}
 
-  
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   deleteCard() {
     this.kanbanService.deleteCards(this.cards.id).subscribe((data) => {
@@ -37,11 +33,10 @@ export class CardItemComponent implements OnInit {
         this.cards.id,
         this.cards.titulo,
         this.cards.conteudo,
-        this.cards.lista === "todo" ? "doing" : "done",
-       
+        this.cards.lista === "todo" ? "doing" : "done"
       )
       .subscribe((data) => {
-        this.kanbanService.cardsChange.next(data)
+        this.kanbanService.cardsChange.next(data);
       });
   }
   moveToLeft() {
@@ -50,30 +45,30 @@ export class CardItemComponent implements OnInit {
         this.cards.id,
         this.cards.titulo,
         this.cards.conteudo,
-        this.cards.lista === "done" ? "doing" : "todo",
-       
+        this.cards.lista === "done" ? "doing" : "todo"
       )
       .subscribe((data) => {
-        this.kanbanService.cardsChange.next(data)
+        this.kanbanService.cardsChange.next(data);
       });
   }
-openEditMode(){
-  this.onViewMode = false;
-}
-  cancelEditMode(){
+  openEditMode() {
+    this.onViewMode = false;
+  }
+  cancelEditMode() {
     this.onViewMode = true;
   }
 
-  onEditCard(){
-    this.kanbanService.changeCards(
-      this.cards.id,
-        this.cards.titulo = this.editCard.value.titulo,
-        this.cards.conteudo = this.editCard.value.conteudo,
+  onEditCard() {
+    this.kanbanService
+      .changeCards(
+        this.cards.id,
+        (this.cards.titulo = this.editCard.value.titulo),
+        (this.cards.conteudo = this.editCard.value.conteudo),
         this.cards.lista
-    ).subscribe((data)=> {
-      this.kanbanService.cardsChange.next(data);
-      this.editCard.reset();
-      
-    })
+      )
+      .subscribe((data) => {
+        this.kanbanService.cardsChange.next(data);
+        this.editCard.reset();
+      });
   }
 }

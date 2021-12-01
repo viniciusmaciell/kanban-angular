@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { CardItemComponent } from './board/card-item/card-item.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { KanbanService } from './service/kanban.service';
+import { ErrorComponent } from './error/error.component';
+import { AuthGuardService } from './guards/auth-guard';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { KanbanService } from './service/kanban.service';
     HeaderComponent,
     LoginComponent,
     CardItemComponent,
+    ErrorComponent,
   
   ],
   imports: [
@@ -28,7 +31,7 @@ import { KanbanService } from './service/kanban.service';
     FormsModule
     
   ],
-  providers: [KanbanService],
+  providers: [KanbanService,AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

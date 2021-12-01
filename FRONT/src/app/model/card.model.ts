@@ -3,7 +3,6 @@ export class Card {
     public id?: any,
     public titulo?: any,
     public conteudo?: any,
-    public lista?: any,
-    
+    public lista?: any
   ) {}
 }

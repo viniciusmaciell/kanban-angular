@@ -1,59 +1,71 @@
-
-  <div *ngIf="onViewMode; else onEditMode">
-    <!-- <div class="d-flex flex-row justify-content-between">
-      </div> -->
-      <div  class="card text-white bg-warning mb-3" style="max-width: 18rem">
-        <div class="card-header d-flex justify-content-between">
-         
-          <h4>{{cards.titulo}}</h4>
-          <button (click)="openEditMode()" class="btn btn-outline-light btn-common">
-            <img class="btn-edit" src="../../../assets/pencil-square.svg" alt="" />
-          </button>
-        </div>
-        <div class="card-body">
-          <p class="card-text">
-            {{cards.conteudo}}
-          </p>
-        </div>
-        <div class="card-footer d-flex justify-content-between">
-          <button (click)="moveToLeft()"class="btn btn-outline-light btn-common">
-            <img
-              class="btn-edit"
-              src="../../../assets/box-arrow-in-left.svg"
-              alt=""
-            />
-          </button>
-          <button (click)="deleteCard()" class="btn btn-outline-danger btn-common">
-            <img class="btn-edit" src="../../../assets/trash.svg" alt="" />
-          </button>
-          <button (click)="moveToRight()" class="btn btn-outline-light btn-common">
-            <img
-              class="btn-edit"
-              src="../../../assets/box-arrow-in-right.svg"
-              alt=""
-            />
-          </button>
-        </div>
-      </div>
+<div *ngIf="onViewMode; else onEditMode">
+  <div class="card text-black bg-light card-edit mb-3" style="max-width: 18rem">
+    <div class="card-header d-flex justify-content-between">
+      <h4>{{ cards.titulo }}</h4>
+      <button (click)="openEditMode()" class="btn btn-outline-light btn-common">
+        <img class="btn-edit" src="../../../assets/pencil-square.svg" alt="" />
+      </button>
     </div>
-  
-    <ng-template #onEditMode>
+    <div class="card-body">
+      <p class="card-text">
+        {{ cards.conteudo }}
+      </p>
+    </div>
+    <div class="card-footer d-flex justify-content-between">
+      <button (click)="moveToLeft()" class="btn btn-outline-light btn-common">
+        <img
+          class="btn-edit"
+          src="../../../assets/box-arrow-in-left.svg"
+          alt=""
+        />
+      </button>
+      <button (click)="deleteCard()" class="btn btn-outline-danger btn-common">
+        <img class="btn-edit" src="../../../assets/trash.svg" alt="" />
+      </button>
+      <button (click)="moveToRight()" class="btn btn-outline-light btn-common">
+        <img
+          class="btn-edit"
+          src="../../../assets/box-arrow-in-right.svg"
+          alt=""
+        />
+      </button>
+    </div>
+  </div>
+</div>
 
-      <div  class="card text-white mb-3" style="max-width: 18rem">
-        
-        <form [formGroup]="editCard" (ngSubmit)="onEditCard()" >
-          <div class="card-header d-flex justify-content-between">
-          
-          
-            <input formControlName="titulo" placeholder="Edit Title" type="text" class="w-100 text-center">
-          </div>
-          <div class="card-body">
-              <textarea formControlName="conteudo" class="text-center"placeholder="Edit Content" name="" id="" cols="21" rows="2"></textarea>
-          </div>
-          <div class="card-footer d-flex justify-content-between">
-            <button (click)="cancelEditMode()" class="btn btn-common btn-danger p-1" ><img class="btn-edit" src="../../assets/x-square.svg" alt=""></button>
-            <button type="submit" class="btn btn-success p-1"><img src="../../assets/check2-square.svg" class="btn-edit" alt=""></button>
-          </div>
-        </form>
+<ng-template #onEditMode>
+  <div class="card text-white mb-3" style="max-width: 18rem">
+    <form [formGroup]="editCard" (ngSubmit)="onEditCard()">
+      <div class="card-header d-flex justify-content-between">
+        <input
+          formControlName="titulo"
+          placeholder="Edit Title"
+          type="text"
+          class="w-100 text-center"
+        />
       </div>
-    </ng-template>
+      <div class="card-body">
+        <textarea
+          formControlName="conteudo"
+          class="text-center w-100"
+          placeholder="Edit Content"
+          name=""
+          id=""
+          cols="21"
+          rows="2"
+        ></textarea>
+      </div>
+      <div class="card-footer d-flex justify-content-between">
+        <button
+          (click)="cancelEditMode()"
+          class="btn btn-common btn-danger p-1"
+        >
+          <img class="btn-edit" src="../../assets/x-square.svg" alt="" />
+        </button>
+        <button type="submit" class="btn btn-success p-1">
+          <img src="../../assets/check2-square.svg" class="btn-edit" alt="" />
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>

@@ -1,0 +1,56 @@
+div#board {
+  font-family: "Rubik", sans-serif;
+  margin-top: 2rem;
+}
+
+h3 {
+  font-weight: 700;
+}
+.lists {
+  width: 18rem;
+}
+
+.btn-add {
+  right: 4.5rem;
+  top: 0.5rem;
+}
+.btn-add:hover {
+  background-color: #47cf73;
+}
+.add-icon {
+  width: 3rem;
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%)
+    contrast(103%);
+}
+.btn-edit {
+  width: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+.btn-common {
+  border-color: transparent;
+}
+.border-box {
+  border: none;
+}
+.title-to-do {
+  background-image: linear-gradient(to right, #f7ba06, transparent);
+  border-radius: 0.3rem;
+  margin-bottom: 0.8rem;
+  color: white;
+  font-weight: bold;
+}
+.title-doing {
+  background-image: linear-gradient(to right, #0077f7, transparent);
+  border-radius: 0.3rem;
+  margin-bottom: 0.8rem;
+  color: white;
+  font-weight: bold;
+}
+.title-done {
+  background-image: linear-gradient(to right, #28a745, transparent);
+  border-radius: 0.3rem;
+  margin-bottom: 0.8rem;
+  color: white;
+  font-weight: bold;
+}

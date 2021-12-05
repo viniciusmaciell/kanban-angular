@@ -1,0 +1,13 @@
+div {
+  color: gray;
+  position: relative;
+  text-align: center;
+  top: 25vh;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  font-weight: bold;
+}
